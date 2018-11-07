@@ -41,5 +41,5 @@ do
   #sudo $package_manager $package
   echo -e "\n"
 done
-
+echo 
 exit 0
