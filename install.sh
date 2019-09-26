@@ -25,7 +25,7 @@ esac
 
 CURRENT_USER=`whoami`
 
-if [ "$CURRENT_USER" -ne "root" ]
+if [ "$CURRENT_USER" != "root" ]
 then
   echo "The current user doesn't have permission ! "
   exit 1
