@@ -3,7 +3,7 @@
 USER2CREATE="kerboitk"
 
 #Detection of the OS
-OS_name=`lsb_release -i | awk -F: '{ print $2 }' | awk -F ' ' '{ print $1 }'`
+OS_name=`cat /etc/os-release | head -1 | cut -d'=' -f2`
 echo -e "\n"
 echo "OS name : $OS_name"
 
