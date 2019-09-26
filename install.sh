@@ -36,7 +36,7 @@ fi
 
 User=`grep "$USER2CREATE" /etc/passwd`
 
-if [ $? -eq 0 ]
+if [ $? -ne 0 ]
 then
   echo "Creating user $USER2CREATE..."
   useradd $USER2CREATE -m -s /bin/bash
