@@ -1,0 +1,57 @@
+[user]
+	email = kerboit.kevin@gmail.com
+	name = Kerboit Kevin
+
+[core]
+	editor = vim
+
+[alias]
+
+  lol   = log --graph --all --decorate --pretty=oneline --abbrev-commit
+  lols  = log --graph --all --decorate --pretty=oneline --abbrev-commit -15
+
+  # idem "lol" pour la branche courante
+
+  lolb  = log --graph --decorate --pretty=oneline --abbrev-commit
+  lolbs = log --graph --decorate --pretty=oneline --abbrev-commit -15
+
+  # mode dense
+
+  lold = log --graph --all --decorate --pretty=oneline --abbrev-commit --dense --simplify-by-decoration
+
+  # affiche l'auteur
+
+  lola   = log --graph --all --pretty=format:'%Cred%h%Creset %C(reverse)[%ad]%Creset %Cgreen%ae%Creset %C(yellow reverse)%d%Creset: %s' --date=local
+  lolas  = log --graph --all --pretty=format:'%Cred%h%Creset %C(reverse)[%ad]%Creset %Cgreen%ae%Creset %C(yellow reverse)%d%Creset: %s' --date=local -15
+  lolab  = log --graph --pretty=format:'%Cred%h%Creset %C(reverse)[%ad]%Creset %Cgreen%ae%Creset %C(yellow reverse)%d%Creset: %s' --date=local
+  lolabs = log --graph --pretty=format:'%Cred%h%Creset %C(reverse)[%ad]%Creset %Cgreen%ae%Creset %C(yellow reverse)%d%Creset: %s' --date=local -n15
+
+  # lol1 = log --graph --all --pretty=format:'%h [%ad] %ae %d : %s' --date=local
+  # lol2 = log --graph --all --pretty=format:'%Cred%h%Creset %Cblue[%ae]%Creset %Cgreen%an%Creset %C(yellow reverse)%d%Creset: %s' --date=local
+
+  hash = log --all --pretty=format:%H -n1
+  authors = log --all --pretty=format:%ae
+  lspriv = ls-files --others --exclude-standard
+
+  co = checkout
+  ci = commit
+  st = status
+ 
+  pred = log --pretty=%P -n 1
+ 
+  top = rev-parse --show-toplevel
+
+  showcommit=show --decorate --date=short --stat --abbrev-commit
+
+  show0=show --graph --decorate --abbrev-commit --pretty=oneline --date=short -s
+
+  show1 = show --graph --decorate --abbrev-commit --pretty=format:'%Cred%h%d%Creset %Cblue[%ad]%Creset %Cgreen%an%Creset: %s' --date=short  -s
+
+  mydiff = diff --word-diff=plain
+
+[color]
+
+  status = auto
+  branch = auto
+  interactive = auto
+  diff = auto
