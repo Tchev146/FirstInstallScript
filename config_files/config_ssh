@@ -1,0 +1,11 @@
+Host Jarvis 
+    HostName kevinkerboit.com
+    Port 22
+    User kerboitk
+    ServerAliveInterval 120
+
+Host Vador  
+    HostName vador.univ-brest.fr 
+    Port 22
+    User kerboike
+    ServerAliveInterval 120

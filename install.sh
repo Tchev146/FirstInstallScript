@@ -31,7 +31,6 @@ then
   exit 1
 fi
 
-
 # Creation of the user
 
 User=`grep "$USER2CREATE" /etc/passwd`
@@ -44,7 +43,6 @@ then
 else
   echo "User $USER2CREATE already created !"
 fi
-
 
 if [ "$package_manager" != 0 ]
 then
@@ -62,7 +60,7 @@ for package in $package_list
 do
   echo "Installing : $package"
   echo -e "Executing : '$package_manager $package' \n"
-  exec $package_manager $package
+  $package_manager $package
   echo -e "\n"
 done
 
@@ -71,12 +69,7 @@ mv /home/$USER2CREATE/.bashrc /home/$USER2CREATE/.bashrc.bak
 cp ./config_files/bashrc_fedora /home/$USER2CREATE/.bashrc
 cp ./config_files/gitconfig /home/$USER2CREATE/.gitconfig
 cp ./config_files/tlp /etc/default/tlp
-
-echo "Login as $USER2CREATE"
-su - $USER2CREATE
-
-echo "Installing SpaceVim and his dependancies..."
-curl -sLf https://spacevim.org/install.sh | bash
+cp ./config_files/config_ssh /home/$USER2CREATE/.ssh/config
 
 echo "powertop configuration"
 
@@ -91,10 +84,12 @@ fi
 sudo powertop --calibrate
 sudo powertop --auto-tune
 
-echo "Generate SSH key"
-pushd ~/.ssh/ > /dev/null
-ssh-keygen -t rsa -b 4096
-popd > /dev/null
+echo "Installing SpaceVim and his dependancies as $USER2CREATE..."
+su - $USER2CREATE -c "curl -sLf https://spacevim.org/install.sh | bash"
+
+echo "Generate SSH key for $USER2CREATE"
+su - $USER2CREATE -c "pushd ~/.ssh/ > /dev/null"
+su - $USER2CREATE -c "ssh-keygen -t rsa -b 4096"
+su - $USER2CREATE -c "popd > /dev/null"
 
 exit 0
-
