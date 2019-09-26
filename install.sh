@@ -70,7 +70,7 @@ echo "Copy configuration files"
 mv /home/$USER2CREATE/.bashrc /home/$USER2CREATE/.bashrc.bak
 cp ./config_files/bashrc_fedora /home/$USER2CREATE/.bashrc
 cp ./config_files/gitconfig /home/$USER2CREATE/.gitconfig
-
+cp ./config_files/tlp /etc/default/tlp
 
 echo "Login as $USER2CREATE"
 su - $USER2CREATE
@@ -93,7 +93,7 @@ sudo powertop --auto-tune
 
 echo "Generate SSH key"
 pushd ~/.ssh/ > /dev/null
-
+ssh-keygen -t rsa -b 4096
 popd > /dev/null
 
 exit 0
